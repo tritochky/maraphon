@@ -1,4 +1,4 @@
-﻿const prices = {
+const prices = {
     'landing-page': {
         pm: 700,
         design: 600,
@@ -76,6 +76,10 @@ const formEl = document.querySelector('#project-price-form');
 const emailModal = document.querySelector('#modal-email');
 const successModal = document.querySelector('#success-modal');
 
+// Первый просчет формы
+
+calculateWork();
+
 formEl.addEventListener('change', calculateWork);
 
 formEl.addEventListener('submit', function (event) {
@@ -88,6 +92,10 @@ const closeButtons = document.querySelectorAll('.modal-close-btn');
 
 closeButtons.forEach(function (closeBtn) {
     closeBtn.addEventListener('click', function () {
+        const inputContainer = document.querySelector('#email-input-container');
+
+        inputContainer.classList.remove('email-input-container-error');
+
         emailModal.classList.remove('modal-active');
         successModal.classList.remove('modal-active');
     });
